@@ -1,0 +1,247 @@
+<Calc>:
+    textbox1:txt1
+    textbox2:txt2
+    raw_data:''
+    BoxLayout:
+        orientation:'vertical'
+        MDToolbar:
+            title:'BASIC CALCULATOR'
+            md_bg_color:0.2,0.2,0.2,1
+            specific_text_color:0,.6,.8,1
+            right_action_items:[["dots-vertical",lambda x:None],['clock',lambda x:None]]
+            elevation:0
+        GridLayout:
+            padding:10
+            cols:1
+            size_hint_y:'.8dp'
+            MDLabel:
+                id:txt1
+                bold:True
+                theme_text_color:'Custom'
+                text_color:1,1,1,0.8
+                halign:'right'
+                font_size:45
+                size_hint_y:None
+            MDLabel:
+                id:txt2
+                theme_text_color:'Custom'
+                text_color:1,1,1,1
+                size_hint_y:None
+                font_size:25
+                halign:'right'
+            MDTextButton:
+                text:f"[color=#FFFFFF]View History[/color] click here"
+                markup:True
+        GridLayout:
+            spacing:3,5
+            cols:4
+            MDFillRoundFlatButton:
+                text:"C"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.5,0.5,0.5,1
+                font_size:25
+                bold:True
+                text_color:.6,0,0,1
+                on_release:
+                    root.textbox1.text = root.textbox2.text = ''
+                    root.raw_data = ''
+
+            MDFillRoundFlatButton:
+                text:"Ans"
+                size_hint_x:None
+                height:50
+                md_bg_color:1,.6,0,.8
+                #md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.raw_data =root.textbox2.text = root.textbox2.text if root.textbox2.text!='' and root.textbox2.text!='Error..' else ''
+                    root.textbox1.text =  root.textbox2.text if root.textbox2.text!='' and root.textbox2.text!='Error..' else ''
+
+            MDFillRoundFlatButton:
+                text:"Del"
+                size_hint_x:None
+                height:50
+                md_bg_color:1,0,0,.4
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text = root.textbox1.text[:-1]
+                    root.raw_data = root.raw_data[:-1]
+                    root.raw_data=root.raw_data.strip('#')
+
+            MDFillRoundFlatButton:
+                text:"OFF"
+                size_hint_x:None
+                height:50
+                md_bg_color:1,0,0,.4
+                font_size:20
+                bold:True
+                on_release:
+                    exit(0)
+
+            MDFillRoundFlatButton:
+                text:"7"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='7'
+                    root.raw_data +='7'
+            MDFillRoundFlatButton:
+                text:"8"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='8'
+                    root.raw_data +='8'
+            MDFillRoundFlatButton:
+                text:"9"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='9'
+                    root.raw_data +='9'
+            MDFillRoundFlatButton:
+                text:"X"
+                size_hint_x:None
+                height:55
+                md_bg_color:1,.6,0,.8
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='X'
+                    root.raw_data +='#*#'
+
+            MDFillRoundFlatButton:
+                text:"4"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='4'
+                    root.raw_data +='4'
+            MDFillRoundFlatButton:
+                text:"5"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='5'
+                    root.raw_data +='5'
+            MDFillRoundFlatButton:
+                text:"6"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='6'
+                    root.raw_data +='6'
+            MDFillRoundFlatButton:
+                text:"/"
+                size_hint_x:None
+                height:55
+                md_bg_color:1,.6,0,.8
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='/'
+                    root.raw_data +='#/#'
+
+            MDFillRoundFlatButton:
+                text:"1"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='1'
+                    root.raw_data +='1'
+            MDFillRoundFlatButton:
+                text:"2"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='2'
+                    root.raw_data +='2'
+            MDFillRoundFlatButton:
+                text:"3"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='3'
+                    root.raw_data +='3'
+            MDFillRoundFlatButton:
+                text:"-"
+                size_hint_x:None
+                height:55
+                md_bg_color:1,.6,0,.8
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='-'
+                    root.raw_data +='#-#'
+
+            MDFillRoundFlatButton:
+                text:"0"
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='0'
+                    root.raw_data +='0'
+            MDFillRoundFlatButton:
+                text:"."
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,0.3,0.3,1
+                font_size:25
+                bold:True
+                on_release:
+                    root.textbox1.text+='.'
+                    root.raw_data +='.'
+            MDFillRoundFlatButton:
+                text:"="
+                size_hint_x:None
+                height:50
+                md_bg_color:0.3,1,0.3,.3
+                font_size:25
+                bold:True
+                on_release:
+                    root.doCalculation(root.raw_data) if root.textbox1.text!='' else None
+
+            MDFillRoundFlatButton:
+                text:"+"
+                size_hint_x:None
+                height:55
+                md_bg_color:1,.6,0,.8
+                font_size:20
+                bold:True
+                on_release:
+                    root.textbox1.text+='+'
+                    root.raw_data +='#+#'
+
