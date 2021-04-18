@@ -51,7 +51,7 @@ class Calc(Screen):
                 numStack.append(op1 * op2)
             else:
                 numStack.append(op1 / op2)
-        return '%.2f'%numStack[0]
+        return ('%.2f' % numStack[0]) if int(numStack[0]) != numStack[0] else int(numStack[0])
 
     def doCalculation(self,infix):
         print(infix)
